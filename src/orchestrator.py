@@ -31,6 +31,7 @@ def run_analysis_report_task(report_id: int, target_job: str, target_company: li
     """시나리오 2: 분석 리포트 생성 (백그라운드 태스크)"""
     print(f"\n--- 시나리오 2: 리포트(id={report_id}) 생성 작업 시작 ---")
     
+    report = None  # report 변수를 try 블록 이전에 초기화
     try:
         # 1. DB 상태를 'RUNNING'으로 업데이트
         report = db.query(AnalysisReport).filter(AnalysisReport.id == report_id).first()
@@ -42,7 +43,16 @@ def run_analysis_report_task(report_id: int, target_job: str, target_company: li
         db.commit()
 
         # 2. LangGraph 리포트 생성 실행
-        final_report_content = report_generator.run_graph_analysis(target_job, target_company)
+        # [수정] report_generator가 기대하는 형식인 딕셔너리로 데이터를 재구성합니다.
+        user_profile_for_graph = {
+            "목표 직무": target_job,
+            "희망 기업": target_company
+            # (향후 사용자의 다른 정보-스펙, 학년 등-가 있다면 여기에 추가하면 됩니다.)
+        }
+
+        # [수정] 재구성한 딕셔너리 하나만 인자로 전달합니다.
+        final_report_content = report_generator.run_graph_analysis(user_profile_for_graph)
+
 
         # 3. 성공 시 DB에 결과 저장 및 상태 변경
         report.content = final_report_content
