@@ -26,7 +26,7 @@ def recommend_jobs(
     - portfolio_keywords: 'Django,React'
     """
     try:
-        conn = mysql.connector.connect(**config.db_config)
+        conn = mysql.connector.connect(**config.DB_CONFIG)
         cursor = conn.cursor(dictionary=True)
 
         # 키워드 분리

@@ -17,7 +17,7 @@ router = APIRouter()
 def fetch_interest_companies():
     interest_companies = []
     try:
-        conn = mysql.connector.connect(**config.db_config)
+        conn = mysql.connector.connect(**config.DB_CONFIG)
         cursor = conn.cursor(dictionary=True)
         cursor.execute("SELECT name, alias FROM companies")
         rows = cursor.fetchall()
@@ -50,7 +50,7 @@ def fetch_interest_jobs():
         return jobs
 
     try:
-        conn = mysql.connector.connect(**config.db_config)
+        conn = mysql.connector.connect(**config.DB_CONFIG)
         cursor = conn.cursor(dictionary=True)
         cursor.execute("SELECT * FROM jobs")
         all_jobs = cursor.fetchall()
