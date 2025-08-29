@@ -1,3 +1,4 @@
+# report_graph.py
 import pprint
 import json
 from langgraph.graph import StateGraph, END
@@ -7,6 +8,7 @@ from googleapiclient.discovery import build
 from IPython.display import display, Markdown
 
 # (AgentState, 모든 Pydantic 모델, 모든 노드 및 헬퍼 함수가 정의되어 있다고 가정합니다.)
+workflow_app = None
 
 if __name__ == '__main__':
     # --- 1. 준비 단계 ---
