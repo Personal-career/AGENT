@@ -121,7 +121,7 @@ if __name__ == '__main__':
     workflow.add_edge("recommend_learning", END)
     workflow.add_edge("recommend_storytelling", END) # <-- 스토리텔링 노드도 종료로 연결
 
-   workflow_app = workflow.compile()
+    workflow_app = workflow.compile()
     print("✅ Workflow compiled successfully!")
 
     # --- 3. 테스트를 위한 초기 데이터 정의 ---
