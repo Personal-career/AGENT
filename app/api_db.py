@@ -14,22 +14,6 @@ from fastapi import APIRouter, HTTPException
 load_dotenv()
 router = APIRouter()
 
-# ==========================
-#  🔑 Worknet API KEY
-# ==========================
-WORKNET_API_KEY = config.WORKNET_API_KEY
-
-
-# ==========================
-#  DB 설정 (사용자 제공 정보 그대로)
-# ==========================
-
-#db_config = {
-#    'host': 'localhost',
-#    'user': 'root',
-#    'password': 'dldudwns01~',
-#    'database': 'mysql'
-#}
 
 # ==========================
 #  API 호출 및 전체 공고 수집

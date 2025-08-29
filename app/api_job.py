@@ -1,19 +1,15 @@
 # app/db_job.py
+import os
+import config
+from dotenv import load_dotenv
 import mysql.connector
 from fastapi import APIRouter, Query
-from dotenv import load_dotenv
-import os
 
 
 # 🔐 환경 변수 로드
 load_dotenv()
 # FastAPI Router
 router = APIRouter()
-
-# ==========================
-#  DB 설정 (사용자 제공 정보 그대로)
-# ==========================
-
 
 
 # ==========================

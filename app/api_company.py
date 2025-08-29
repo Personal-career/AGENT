@@ -1,6 +1,7 @@
 # app/api_company.py
 import os
 import json
+import config
 import mysql.connector
 from datetime import datetime
 from dotenv import load_dotenv
@@ -9,16 +10,6 @@ from fastapi import APIRouter, HTTPException, Query
 # 🔐 환경 변수 로드
 load_dotenv()
 router = APIRouter()
-
-# ==========================
-# DB 설정 (사용자 제공 정보 그대로)
-# ==========================
-#db_config = {
-#    'host': 'localhost',
-#    'user': 'root',
-#    'password': 'dldudwns01~',
-#    'database': 'mysql'
-#}
 
 # ==========================
 # 관심 기업 리스트 SQL에서 가져오기
