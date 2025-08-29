@@ -119,7 +119,7 @@ if __name__ == '__main__':
     workflow.add_edge("recommend_learning", END)
     workflow.add_edge("recommend_storytelling", END) # <-- 스토리텔링 노드도 종료로 연결
 
-    app = workflow.compile()
+   workflow_app = workflow.compile()
     print("✅ Workflow compiled successfully!")
 
     # --- 3. 테스트를 위한 초기 데이터 정의 ---
@@ -166,7 +166,7 @@ execution_log = {}
 final_state = None  # <-- [추가] 최종 상태를 저장할 변수
 
 # stream을 통해 각 노드의 실행 결과를 실시간으로 확인하고 로그에 기록
-for state_update in app.stream(initial_state):
+for state_update in workflow_app.stream(initial_state):
     node_name = list(state_update.keys())[0]
     node_output = state_update[node_name]
 
