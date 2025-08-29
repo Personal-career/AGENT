@@ -24,7 +24,7 @@ def fetch_all_jobs():
 
     for page in range(1, 10):  # 페이지 수 필요에 따라 조정 가능
         params = {
-            "authKey": WORKNET_API_KEY,
+            "authKey": config.WORKNET_API_KEY,
             "callTp": "L",
             "returnType": "XML",
             "startPage": str(page),
