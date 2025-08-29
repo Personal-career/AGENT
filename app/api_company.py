@@ -13,12 +13,12 @@ router = APIRouter()
 # ==========================
 # DB 설정 (사용자 제공 정보 그대로)
 # ==========================
-db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': 'dldudwns01~',
-    'database': 'mysql'
-}
+#db_config = {
+#    'host': 'localhost',
+#    'user': 'root',
+#    'password': 'dldudwns01~',
+#    'database': 'mysql'
+#}
 
 # ==========================
 # 관심 기업 리스트 SQL에서 가져오기

@@ -23,12 +23,13 @@ WORKNET_API_KEY = config.WORKNET_API_KEY
 # ==========================
 #  DB 설정 (사용자 제공 정보 그대로)
 # ==========================
-db_config = {
-    'host': 'localhost',
-    'user': 'root', 
-    'password': 'dldudwns01~', 
-    'database': 'mysql'
-}
+
+#db_config = {
+#    'host': 'localhost',
+#    'user': 'root',
+#    'password': 'dldudwns01~',
+#    'database': 'mysql'
+#}
 
 # ==========================
 #  API 호출 및 전체 공고 수집
@@ -85,7 +86,7 @@ def upsert_jobs_to_db(jobs):
         return
 
     try:
-        conn = mysql.connector.connect(**db_config)
+        conn = mysql.connector.connect(**config.DB_CONFIG)
         cursor = conn.cursor()
 
         job_tuples = [
@@ -136,7 +137,7 @@ def upsert_jobs_to_db(jobs):
 # ==========================
 def create_jobs_table():
     try:
-        conn = mysql.connector.connect(**db_config)
+        conn = mysql.connector.connect(**config.DB_CONFIG)
         cursor = conn.cursor()
         create_table_query = """
             CREATE TABLE IF NOT EXISTS jobs (

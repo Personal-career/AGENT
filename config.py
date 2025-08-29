@@ -2,7 +2,8 @@ import os
 from dotenv import load_dotenv
 
 # .env 파일에서 환경 변수를 로드합니다.
-load_dotenv()
+dotenv_path = os.path.join(os.path.dirname(__file__), ".env")
+load_dotenv(dotenv_path)
 
 DB_CONFIG = {
     "host": os.getenv("DB_HOST", "localhost"),
@@ -10,7 +11,7 @@ DB_CONFIG = {
     "password": os.getenv("DB_PASSWORD", ""),
     "database": os.getenv("DB_NAME", "mysql"),
 }
-
+print(DB_CONFIG)
 
 # API 키 설정
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
