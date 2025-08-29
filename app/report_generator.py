@@ -1,5 +1,8 @@
 # app/report_generator.py
 
+
+from app.report_graph import app  # <- 여기서 app을 가져오기
+
 import json
 from datetime import datetime, timedelta
 
