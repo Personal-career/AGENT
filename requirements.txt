@@ -4,6 +4,7 @@ dotenv
 # FastAPI & Server
 fastapi
 uvicorn[standard]
+ipython
 
 # Database
 sqlalchemy
